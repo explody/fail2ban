@@ -211,6 +211,9 @@ class Jail:
 		self.filter.start()
 		self.actions.start()
 		# Restore any previous valid bans from the database
+        # TODO: This startup behavior should be configurable.  If bans persist
+        #       after shutdown (should also be configurable), there is no
+        #       reason to re-ban every IP here
 		if self.database is not None:
 			for ticket in self.database.getBansMerged(
 				jail=self, bantime=self.actions.getBanTime()):

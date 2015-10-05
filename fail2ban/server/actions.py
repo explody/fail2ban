@@ -232,7 +232,10 @@ class Actions(JailThread, Mapping):
 					time.sleep(self.sleeptime)
 			else:
 				time.sleep(self.sleeptime)
-		self.__flushBan()
+
+        # Removed because bans need to be persistent, not on/off with f2b -mkc
+        # TODO: figure out how to make this configurable
+		# self.__flushBan()
 
 		actions = self._actions.items()
 		actions.reverse()
